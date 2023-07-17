@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fa-IR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
+    <link rel="icon" href="img/icon.png">
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>random password generator</title>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h2 class="title">گذرواژه ساز</h2>
+            <i class="fi fi-rr-bulb" id="toggle"></i>
+        </nav>
+    </header>
+
+    <div class="message" onclick="openMessageBox()">
+        <div>
+            <i class="fi fi-rr-times-hexagon"></i>
+            <h3>گذرواژه ایمن</h3>
+            <p>گذرواژه ایمن حداقل از 8 کاراکتر شامل حروف کوچک و بزرگ ، اعداد و نماد ها تشکیل شده است.</p>
+        </div>
+    </div>
+
+    <main>
+        <section class="box">
+
+            <h3>ساخت گذرواژه ایمن <i class="fi fi-rr-comment-info" onclick="openMessageBox()"></i></h3>
+            <div class="form">
+                <div class="output">
+                    <div id="password">گذرواژه در اینجا نمایش داده میشود</div>
+                    <button class="btn" onclick="copyPassword()"><i class="fi fi-rr-copy"></i></button>
+                </div>
+                <div class="range-input">
+                    <label>طول گذرواژه</label>
+                    <button class="btn" onclick="changeLength(-1)"><i class="fi fi-rr-minus"></i></button>
+                    <input type="number" id="password-length" min="1" max="32" value="8">
+                    <button class="btn" onclick="changeLength(1)"><i class="fi fi-rr-plus"></i></button>
+                </div>
+                <div class="password-options">
+                    <div>
+                        <h4>حروف بزرگ</h4>
+                        <input type="checkbox" id="uppercase">
+                        <label for="uppercase">
+                            <div class="toggle" id="0" onclick="checkOption(this.id)">
+                                <span></span>
+                            </div>
+                        </label>
+                    </div>
+                    <div>
+                        <h4>حروف کوچک</h4>
+                        <input type="checkbox" id="lowercase">
+                        <label for="lowercase">
+                            <div class="toggle" id="1" onclick="checkOption(this.id)">
+                                <span></span>
+                            </div>
+                        </label>
+                    </div>
+                    <div>
+                        <h4>اعداد</h4>
+                        <input type="checkbox" id="digits">
+                        <label for="digits">
+                            <div class="toggle" id="2" onclick="checkOption(this.id)">
+                                <span></span>
+                            </div>
+                        </label>
+                    </div>
+                    <div>
+                        <h4>نمادها</h4>
+                        <input type="checkbox" id="symbols">
+                        <label for="symbols">
+                            <div class="toggle" id="3" onclick="checkOption(this.id)">
+                                <span></span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <button class="btn" onclick="generate()">گذرواژه جدید</button>
+            </div>
+        </section>
+
+        <section class="box">
+            <h3>آخرین گذرواژه ها</h3>
+            <p id="recent-password-text">هنوز گذرواژه ای نساخته اید!</p>
+            <div id="recent-password"></div>
+            <button onclick="deleteRecentPasswords()" class="btn" id="delete-passwords" style="display: none;">حذف
+                تاریخچه</button>
+        </section>
+
+    </main>
+    <footer>
+        <a href="https://github.com/mohamadmahdi-ap" target="_blank"><i class="fi fi-brands-github"></i></a>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
